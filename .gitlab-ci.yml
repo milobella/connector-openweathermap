@@ -1,0 +1,17 @@
+include:
+  - project: 'milobella/devops/ci-templates'
+    file: '/templates/common-template.yml'
+
+stages:
+  - build
+  - release
+  - deploy
+
+variables:
+  CONTAINER_TEST_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+  DH_REGISTRY_IMAGE: $DOCKER_USER/$CI_PROJECT_NAME
+  PROJECT_NAME: "milobella"
+  MODULE_NAME: ${CI_PROJECT_NAME}
+  GITLAB_HOST: "gitlab.milobella.com"
+  MODULE_DESCRIPTION: "Open Weather map API libs."
+  HELM_NAME: "tool-openweathermap"

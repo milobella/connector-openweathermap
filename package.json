@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "minimist": "^1.2.0",
+    "stream-chain": "^2.1.0",
+    "stream-json": "^1.2.1"
+  },
+  "name": "openweathermap-tool",
+  "version": "1.0.0",
+  "description": "Tool wrapping the openweathermap api.",
+  "main": "index.js",
+  "repository": "git@gitlab.milobella.com:milobella/tools/openweathermap-tool.git",
+  "author": "Célian Garcia <celian.garcia1@gmail.com>",
+  "license": "MIT"
+}
