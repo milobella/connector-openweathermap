@@ -6,4 +6,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ##  [1.0]
 ###  Added
+- ``/weather`` endpoint to have the current weather data.
+- ``/forecast`` endpoint to have the 5 day / 3 hour forecast.
 - Initialize repository.

@@ -71,34 +71,44 @@ weather_map.set(802, "scattered clouds");
 weather_map.set(803, "broken clouds");
 weather_map.set(804, "overcast clouds");
 
-
-class OpenWeatherMapTransform extends Transform {
-    constructor(options) {
-        super(Object.assign({}, options, {writableObjectMode: true, readableObjectMode: true}));
-
-        this._count = 0;
-    }
-
-    _transform(chunk, _, callback) {
-      if (this.notFirst) {
-        this.push(',');
-      } else {
-        this.push('{"forecast" : [');
-        this.notFirst = true;
-      }
-      this._count++;
-      this.push(JSON.stringify({
-        "temperature": chunk.value.main.temp,
-        "timestamp": chunk.value.dt,
-        "weather": weather_map.get(chunk.value.weather.id) || weather_map.get(800),
-      }));
-      callback(null);
-    }
-
-    _flush(callback) {
-      this.push(this.notFirst ? '], "count": ' + this._count + '}' : '{"forecast" : [], "count": 0}');
-      callback(null);
-    }
+class WeatherMapper {
+  constructor() {}
+  to_target(data) {
+    return JSON.stringify({
+      "temperature": data.main.temp,
+      "timestamp": data.dt,
+      "weather": weather_map.get(data.weather.id) || weather_map.get(800),
+    });
+  }
 }
 
-exports.OpenWeatherMapTransform = OpenWeatherMapTransform;
+
+class ForecastTransform extends Transform {
+  constructor(weather_mapper, query) {
+    super({writableObjectMode: true, readableObjectMode: true});
+
+    this._weather_mapper = weather_mapper;
+    this._count = 0;
+    this._query = query;
+  }
+
+  _transform(chunk, _, callback) {
+    if (this.notFirst) {
+      this.push(',');
+    } else {
+      this.push('{"forecast" : [');
+      this.notFirst = true;
+    }
+    this._count++;
+    this.push(this._weather_mapper.to_target(chunk.value));
+    callback(null);
+  }
+
+  _flush(callback) {
+    this.push(this.notFirst ? '], "count": ' + this._count + '}' : '{"forecast" : [], "count": 0, "query": ' +  + '}');
+    callback(null);
+  }
+}
+
+exports.WeatherMapper = WeatherMapper;
+exports.ForecastTransform = ForecastTransform;

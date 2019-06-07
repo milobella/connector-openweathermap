@@ -9,6 +9,7 @@ image:
   pullPolicy: Always
 
 containerPort: 5555
+apiKey: 5b0ea09cfbd60af16d3428601a242eea
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
