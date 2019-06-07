@@ -23,6 +23,10 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
+env:
+- name: DEBUG
+  value: "express:*"
+
 nodeSelector: {}
 
 tolerations: []
