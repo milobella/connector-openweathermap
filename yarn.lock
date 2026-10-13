@@ -747,12 +747,17 @@ stream-chain@^2.1.0:
   resolved "https://registry.yarnpkg.com/stream-chain/-/stream-chain-2.1.0.tgz#a058a7104d7261a71bf7eb4c5f496f13dc665320"
   integrity sha512-PAUXdRGm0G8P0+/+JEd3O9kfmB9kwmr2nKIc5zhcsHn0KdBByD5PJ2po21iDzc+TZsOSEbU8j4JbAevJsZkLyQ==
 
-stream-json@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/stream-json/-/stream-json-1.2.1.tgz#7b58112358dca3496b3bb1fc9c2a3099a53b34f4"
-  integrity sha512-KcZkgyTENM4HXBDyIguAcyWUogXp+wwWF3wLL5QtWj8SlNESx+4xGWk7rYdFDtTvQ1FhSRkQEWv5xOu4eHU+jQ==
+stream-chain@^4.2.5:
+  version "4.2.6"
+  resolved "https://registry.yarnpkg.com/stream-chain/-/stream-chain-4.2.6.tgz#0ff67bbf3e3fc05b46dd37fe39373229e1504776"
+  integrity sha512-1zeJ8CrtJfmiba26ui8jXkq/xLRFvhzkdH02D5QLO9Cnovgeb28IJxg88DdraWnjnkbOol/++uIAybJbJhk7ig==
+
+stream-json@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/stream-json/-/stream-json-3.6.0.tgz#99fdad598dc2f887c561b4c0a5fb61c594777f62"
+  integrity sha512-NiJdqxKyau579z/E8vfqcjWfSDWxW/AT99javFXdPXF147Z5za85LRXSHEmSX9TKOakB7gaIccfD0fOIctb7KQ==
   dependencies:
-    stream-chain "^2.1.0"
+    stream-chain "^4.2.5"
 
 streamify@^1.0.0:
   version "1.0.0"

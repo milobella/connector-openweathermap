@@ -4,7 +4,7 @@
     "minimist": "^1.2.6",
     "request": "^2.88.0",
     "stream-chain": "^2.1.0",
-    "stream-json": "^1.2.1",
+    "stream-json": "^3.6.0",
     "streamify": "^1.0.0"
   },
   "name": "openweathermap-tool",
